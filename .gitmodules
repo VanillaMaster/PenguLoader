@@ -1,8 +1,0 @@
-[submodule "core/lib"]
-	path = core/lib
-	url = https://github.com/VanillaMaster/cef
-	branch = lib
-[submodule "core/include"]
-	path = core/include
-	url = https://github.com/VanillaMaster/cef
-	branch = include
