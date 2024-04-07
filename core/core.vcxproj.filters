@@ -73,6 +73,9 @@
     <ClCompile Include="src\utils\dialog.cc">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="src\browser\scheme_handler.cc">
+      <Filter>src\browser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\module.def">
@@ -90,6 +93,9 @@
     </ClInclude>
     <ClInclude Include="src\hook.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\browser\scheme_handler.h">
+      <Filter>src\browser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

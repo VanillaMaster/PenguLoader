@@ -221,6 +221,14 @@ static int Hooked_CefInitialize(const struct _cef_main_args_t* args,
 
     const_cast<cef_settings_t *>(settings)->cache_path = CefStr(config::cacheDir().wstring()).forward();
 
+    static auto on_register_custom_schemes = app->on_register_custom_schemes;
+    app->on_register_custom_schemes = [](cef_app_t* self, cef_scheme_registrar_t* registrar) {
+        //registrar->add_custom_scheme(registrar, &u"pengu"_s, CEF_SCHEME_OPTION_STANDARD | CEF_SCHEME_OPTION_SECURE | CEF_SCHEME_OPTION_CORS_ENABLED | CEF_SCHEME_OPTION_FETCH_ENABLED);
+        printf("on_register_custom_schemes\n");
+        registrar->add_custom_scheme(registrar, &u"pengu"_s, CEF_SCHEME_OPTION_STANDARD | CEF_SCHEME_OPTION_SECURE | CEF_SCHEME_OPTION_CORS_ENABLED | CEF_SCHEME_OPTION_FETCH_ENABLED);
+        on_register_custom_schemes(self, registrar);
+    };
+
     static auto GetBrowserProcessHandler = app->get_browser_process_handler;
     app->get_browser_process_handler = [](cef_app_t *self)
     {

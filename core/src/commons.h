@@ -314,6 +314,7 @@ typedef V8Value* (*V8FunctionHandler)(const vec<V8Value *> &args);
 namespace config
 {
     path loaderDir();
+    path runtimeDir();
     path pluginsDir();
     path datastorePath();
 

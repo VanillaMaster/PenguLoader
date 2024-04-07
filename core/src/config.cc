@@ -41,6 +41,11 @@ path config::pluginsDir()
     return loaderDir() / "plugins";
 }
 
+path config::runtimeDir()
+{
+    return loaderDir() / "runtime";
+}
+
 path config::datastorePath()
 {
     return loaderDir() / "datastore";

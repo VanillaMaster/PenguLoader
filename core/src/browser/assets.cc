@@ -1,8 +1,13 @@
 #include "commons.h"
+
 #include "include/capi/cef_parser_capi.h"
 #include "include/capi/cef_scheme_capi.h"
 #include "include/capi/cef_stream_capi.h"
 #include "include/capi/cef_resource_handler_capi.h"
+
+#include "browser/scheme_handler.h"
+
+//#include "browser/s"
 
 // BROWSER PROCESS ONLY.
 
@@ -313,11 +318,13 @@ struct AssetsSchemeHandlerFactory : CefRefCount<cef_scheme_handler_factory_t>
     }
 };
 
+
 void RegisterAssetsSchemeHandlerFactory()
 {
     CefStr scheme{ "https" };
     CefStr domain{ "plugins" };
 
-    cef_register_scheme_handler_factory(&scheme, &domain,
-        new AssetsSchemeHandlerFactory());
+    cef_register_scheme_handler_factory(&scheme, &domain, new AssetsSchemeHandlerFactory());
+
+    RegisterPenguScheme(config::runtimeDir());
 }

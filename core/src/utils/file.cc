@@ -1,4 +1,6 @@
 #include "commons.h"
+#include <windows.h>
+#include <filesystem>
 #include <fstream>
 
 bool utils::isSymlink(const path &path)
